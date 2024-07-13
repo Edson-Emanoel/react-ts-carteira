@@ -2,6 +2,10 @@
 
 npx create-react-app minha-Carteira
 
-npm install styled-components
+#### Dependências
 
-npm install @types/styled-components
+* Trabalhando com estilizações como css
+```
+npm install styled-components  @types/styled-components
+```
+
