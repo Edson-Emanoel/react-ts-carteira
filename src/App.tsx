@@ -1,20 +1,18 @@
-import React from 'react'
-import GlobalStyles from './styles/GlobalStyles';
-import { ThemeProvider } from 'styled-components';
-import Layout from './components/Layout';
-import dark from './styles/themes/dark';
-import Dashboard from './pages/Dashboard';
-import List from './pages/List';
+import { ThemeProvider } from "styled-components";
+import dark from "./styles/themes/dark";
 
-const App: React.FC = () => {
+import GlobalStyles from "./styles/GlobalStyles";
+import { Routes } from "./routes";
+
+function App() {
   return (
-    <ThemeProvider theme={dark}>
-        <GlobalStyles/>
-        <Layout>
-          <List />
-        </Layout>
-    </ThemeProvider>
-  )
+    <>
+      <ThemeProvider theme={dark}>
+        <GlobalStyles />
+        <Routes />
+      </ThemeProvider>
+    </>
+  );
 }
 
 export default App;

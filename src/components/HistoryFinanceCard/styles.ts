@@ -1,15 +1,11 @@
 import styled from "styled-components";
 
-interface IContainerProps {
-    color: string;
-}
-
 interface ITagProps {
     color: string;
 }
 
-export const Container = styled.li<IContainerProps>`
-    background-color: ${props => props.color};
+export const Container = styled.li`
+    background-color: ${props => props.theme.colors.tertiary};
     border-radius: 8px;
 
     list-style: none;
@@ -35,6 +31,8 @@ export const Container = styled.li<IContainerProps>`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        padding-left: 10px;
     }
 `;
 
