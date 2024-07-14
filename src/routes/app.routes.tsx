@@ -1,17 +1,28 @@
-import React from "react";
-import { Switch, Route } from 'react-router-dom'
-
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
-import List from "../pages/List";
+import {List} from "../pages/List";
 import Layout from "../components/Layout";
 
-const AppRoutes: React.FC = () => (
-    <Layout>
-        <Switch>
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/list/:type" component={List} />
-        </Switch>
-    </Layout>
-);
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Dashboard />
+    },
+    {
+      path: '/dashboard',
+      element: <Dashboard />
+    },
+    {
+      path: '/list/:type',
+      element: <List />
+    },
+  ]);
+const AppRoutes: React.FC = () => {
+    return (
+        <Layout>
+            <RouterProvider router={router} /> 
+        </Layout>
+    )
+}
 
 export default AppRoutes;
