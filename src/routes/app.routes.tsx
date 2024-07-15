@@ -13,7 +13,7 @@ const router = createBrowserRouter([
       element: <Dashboard />
     },
     {
-      path: '/list/:type',
+      path: '/list/:movimentType',
       element: <List />
     },
   ]);

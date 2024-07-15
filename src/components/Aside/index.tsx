@@ -30,11 +30,11 @@ const Aside: React.FC = () => {
             Dashboard
           </MenuItemLink>
           <MenuItemLink href="/list/entry-balance">
-            <MdArrowDownward/>
+            <MdArrowUpward />
             Entradas
           </MenuItemLink>
           <MenuItemLink href="/list/exit-balance">
-            <MdArrowUpward />
+            <MdArrowDownward/>
             Saídas
           </MenuItemLink>
           <MenuItemLink href="/">
