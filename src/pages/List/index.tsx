@@ -18,14 +18,6 @@ import {
   Filters
 } from './styles';
 
-// interface IRouteParams {
-//   match: {
-//     params: {
-//       type: string;
-//     }
-//   }
-// }
-
 interface IData {
   description: string;
   amountFormatted: string;

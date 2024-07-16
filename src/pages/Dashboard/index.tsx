@@ -1,12 +1,20 @@
 import React, { useMemo, useState } from 'react'
 import ContentHeader from '../../components/ContentHeader';
 
-import { Container } from './styles';
+import happyImg from "../../assets/happy.svg"
+
+import {
+  Container,
+  Content
+} from './styles';
+
 import SelectInput from '../../components/SelectInput';
-import listOfMonths from '../../utils/months';
+import WalletBox from '../../components/WalletBox';
+import MessageBox from '../../components/MessageBox';
 
 import expenses from '../../repositories/expenses';
 import gains from '../../repositories/gains';
+import listOfMonths from '../../utils/months';
 
 const Dashboard: React.FC = () => {
   const [monthSelected, setMonthSelected] = useState<number>(new Date().getMonth() + 1);
@@ -74,6 +82,39 @@ const Dashboard: React.FC = () => {
           defaultValue={yearSelected} 
         />
       </ContentHeader>
+
+      <Content>
+        <WalletBox
+          title='Saldo'
+          amount={150.00}
+          footerlabel='Atualizado com base nas entradas e saídas'
+          icon='dolar'
+          color='#4E41F0'
+        />
+
+        <WalletBox
+          title='Entradas'
+          amount={5000.00}
+          footerlabel='Atualizado com base nas entradas'
+          icon='arrowUp'
+          color='#F7931B'
+        />
+
+        <WalletBox
+          title='Saídas'
+          amount={150.00}
+          footerlabel='Atualizado com base nas saídas'
+          icon='arrowDown'
+          color='#E44C4E'
+        />
+
+        <MessageBox
+          icon={happyImg}
+          title='Muito Bem!'
+          description='Sua carteira está positiva!'
+          footerText='Continue assim considere investir o seu saldo.'
+        />
+      </Content>
     </Container>
   )
 }
