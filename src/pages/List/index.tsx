@@ -100,7 +100,7 @@ export const List = () => {
     try {
       const parseMonth = Number(month);
       setMonthSelected(parseMonth)
-    } catch (error) {
+    } catch {
       throw new Error('Mês inválido. O valor aceito é entre 0 - 12')
     }
   }
@@ -109,7 +109,7 @@ export const List = () => {
     try {
       const parseYear = Number(year);
       setYearSelected(parseYear)
-    } catch (error) {
+    } catch {
       throw new Error('Ano inválido. O valor deve ser um número')
     }
   }
