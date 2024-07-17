@@ -60,15 +60,19 @@ export const Legend = styled.li<ILegendProps>`
         height: 45px;
         border-radius: 5px;
     
-        font-size: 18px;
-        line-height: 40px;
+        font-size: 14px;
+        line-height: 45px;
         text-align: center;
     }
 
     > span {
-        margin-left: 5px;
+        margin: 5px;
     }
 
 `;
 
-export const SideRight = styled.main``;
+export const SideRight = styled.main`
+    display: flex;
+    flex: 1;
+    justify-content: center;
+`;

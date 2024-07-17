@@ -3,8 +3,8 @@ import React from "react";
 import {
     PieChart,
     Pie,
-    Cell
-    // PieResponsiveContainer,
+    Cell,
+    ResponsiveContainer
 } from "recharts";
 
 import {
@@ -15,68 +15,45 @@ import {
     SideRight
 } from "./styles";
 
-export const PieChartComp: React.FC = () => {
-    return(
-        <Container>
-            <SideLeft>
-                <h2>Relação </h2>
-                <LegendContainer>
-                    <Legend color="#F7931B">
-                        <div>5%</div>
-                        <span>Entradas</span>
-                    </Legend>
-                    <Legend color="#E44C4E">
-                        <div>95%</div>
-                        <span>Saídas</span>
-                    </Legend>
-                    <Legend color="#F7931B">
-                        <div>5%</div>
-                        <span>Entradas</span>
-                    </Legend>
-                    <Legend color="#E44C4E">
-                        <div>95%</div>
-                        <span>Saídas</span>
-                    </Legend>
-                    <Legend color="#F7931B">
-                        <div>5%</div>
-                        <span>Entradas</span>
-                    </Legend>
-                    <Legend color="#E44C4E">
-                        <div>95%</div>
-                        <span>Saídas</span>
-                    </Legend>
-                    <Legend color="#F7931B">
-                        <div>5%</div>
-                        <span>Entradas</span>
-                    </Legend>
-                    <Legend color="#E44C4E">
-                        <div>95%</div>
-                        <span>Saídas</span>
-                    </Legend>
-                    <Legend color="#F7931B">
-                        <div>5%</div>
-                        <span>Entradas</span>
-                    </Legend>
-                    <Legend color="#E44C4E">
-                        <div>95%</div>
-                        <span>Saídas</span>
-                    </Legend>
-                    <Legend color="#F7931B">
-                        <div>5%</div>
-                        <span>Entradas</span>
-                    </Legend>
-                    <Legend color="#E44C4E">
-                        <div>95%</div>
-                        <span>Saídas</span>
-                    </Legend>
-                </LegendContainer>
-            </SideLeft>
-
-            <SideRight>
-                
-            </SideRight>
-        </Container>
-    )
+interface IPieChartProps {
+    data: {
+       name: string;
+       value: number;
+       percent: number;
+       color: string;
+    }[];
 }
 
-export default PieChartComp
+const PieChartBox: React.FC<IPieChartProps> = ({ data }) => (
+    <Container>
+        <SideLeft>
+            <h2>Relação</h2>
+            <LegendContainer>
+                {
+                    data.map((indicador) => (
+                        <Legend color={indicador.color}>
+                            <div>{indicador.percent} %</div>
+                            <span>{indicador.name}</span>
+                        </Legend>
+                    ))
+                }
+            </LegendContainer>
+        </SideLeft>
+
+        <SideRight>
+            <ResponsiveContainer>
+                <PieChart>
+                    <Pie data={data} dataKey="percent">
+                        {
+                            data.map((indicator) => (
+                                <Cell key={indicator.name} fill={indicator.color}/>
+                            ))
+                        }
+                    </Pie>
+                </PieChart>
+            </ResponsiveContainer>
+        </SideRight>
+    </Container>
+)
+
+export default PieChartBox;
