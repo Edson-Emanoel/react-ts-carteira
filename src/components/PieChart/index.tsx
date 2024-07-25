@@ -24,36 +24,38 @@ interface IPieChartProps {
     }[];
 }
 
-const PieChartBox: React.FC<IPieChartProps> = ({ data }) => (
-    <Container>
-        <SideLeft>
-            <h2>Relação</h2>
-            <LegendContainer>
-                {
-                    data.map((indicador) => (
-                        <Legend color={indicador.color}>
-                            <div>{indicador.percent} %</div>
-                            <span>{indicador.name}</span>
-                        </Legend>
-                    ))
-                }
-            </LegendContainer>
-        </SideLeft>
+const PieChartBox: React.FC<IPieChartProps> = ({ data }) => {
+    return (
+        <Container>
+            <SideLeft>
+                <h2>Relação</h2>
+                <LegendContainer>
+                    {
+                        data.map((indicador) => (
+                            <Legend color={indicador.color}>
+                                <div>{indicador.percent} %</div>
+                                <span>{indicador.name}</span>
+                            </Legend>
+                        ))
+                    }
+                </LegendContainer>
+            </SideLeft>
 
-        <SideRight>
-            <ResponsiveContainer>
-                <PieChart>
-                    <Pie data={data} dataKey="percent">
-                        {
-                            data.map((indicator) => (
-                                <Cell key={indicator.name} fill={indicator.color}/>
-                            ))
-                        }
-                    </Pie>
-                </PieChart>
-            </ResponsiveContainer>
-        </SideRight>
-    </Container>
-)
+            <SideRight>
+                <ResponsiveContainer>
+                    <PieChart>
+                        <Pie data={data} dataKey="percent">
+                            {
+                                data.map((indicator) => (
+                                    <Cell key={indicator.name} fill={indicator.color}/>
+                                ))
+                            }
+                        </Pie>
+                    </PieChart>
+                </ResponsiveContainer>
+            </SideRight>
+        </Container>
+    )
+}
 
 export default PieChartBox;

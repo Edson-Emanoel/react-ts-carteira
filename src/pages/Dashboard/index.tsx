@@ -147,8 +147,7 @@ const Dashboard: React.FC = () => {
   },[totalGains, totalExpenses]);
 
   const historyData = useMemo(() => {
-    return listOfMonths
-    .map((_, month) => {
+    return listOfMonths.map((_, month) => {
         
       let amountEntry = 0;
       gains.forEach(gain => {
@@ -187,12 +186,6 @@ const Dashboard: React.FC = () => {
         amountEntry,
         amountOutput
       }
-    })
-    .filter(item => {
-      const currentMonth = new Date().getMonth();
-      const currentYear = new Date().getFullYear();
-
-      return (yearSelected === currentYear && item.monthNumber <= currentMonth) || (yearSelected < currentYear)
     })
 },[yearSelected]);
 
@@ -261,7 +254,7 @@ const Dashboard: React.FC = () => {
           footerText={message.footerText}
         />
 
-        <PieChartBox data={relationExpensesVersusGains} />
+        <PieChartBox data={relationExpensesVersusGains}  />
         
         <HistoryBox 
           data={historyData} 
